@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:task="http://www.springframework.org/schema/task"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd"
+>
+    <task:annotation-driven/>
+
+
+    <!-- service -->
+    <!--<bean class="org.hzdb.auth.service.TestJob" id="job"></bean>-->
+
+    <!--<bean id="jobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">-->
+        <!--<property name="targetObject" ref="job"></property>-->
+        <!--<property name="targetMethod" value="show"></property>-->
+    <!--</bean>-->
+    <!--&lt;!&ndash; timertask &ndash;&gt;-->
+    <!--<bean id="simpleTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">-->
+    <!--<property name="jobDetail" ref="jobDetail"/>-->
+    <!--<property name="repeatCount" value="5"/>-->
+    <!--<property name="repeatInterval" value="1000"/>-->
+    <!--<property name="startDelay" value="10000"/>-->
+<!--</bean>-->
+
+    <!--<bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">-->
+        <!--&lt;!&ndash;  秒  分  时  月中天   月  星期中天  年-->
+              <!--*   *   *    1      *     ？       省略的-->
+              <!--多个用,    / 步长  - 范围   L 最后-->
+          <!--&ndash;&gt;-->
+        <!--<property name="cronExpression" value="0 0 12 * * ?"></property>-->
+        <!--<property name="jobDetail" ref="jobDetail"/>-->
+
+    <!--</bean>-->
+
+    <!--<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">-->
+        <!--<property name="triggers">-->
+            <!--<array>-->
+                <!--<ref bean="cronTrigger"/>-->
+            <!--</array>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+
+</beans>

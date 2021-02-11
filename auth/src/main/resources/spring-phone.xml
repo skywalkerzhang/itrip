@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"
+>
+    <bean id="phoneTemplate" class="org.hzdb.util.PhoneTemplate">
+        <constructor-arg value="app.cloopen.com"></constructor-arg>
+        <constructor-arg value="8883"></constructor-arg>
+        <constructor-arg value="8a216da864f9f15b01650d047de50c94"></constructor-arg>
+        <constructor-arg value="44ad5f630e864fc7ae6083f90a0bdf25"></constructor-arg>
+        <constructor-arg value="8a216da864f9f15b01650d047e300c9a"></constructor-arg>
+    </bean>
+
+
+</beans>

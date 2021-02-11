@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"
+>
+
+        <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+            <property name="username" value="root"></property>
+            <property name="url" value="jdbc:mysql:///itripdb"></property>
+            <property name="password" value="123456"></property>
+            <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+            <!-- 省略了心跳包 连接是否有效。-->
+            <property name="testOnBorrow" value="true"/>
+        </bean>
+
+        <!--1 SqlSessionFacotry工厂 单例 -->
+        <bean id="sqlSessionFactory" class="com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean">
+            <!-- 1 设置数据源 连接数据库 -->
+            <property name="dataSource" ref="dataSource"></property>
+            <!-- 2  配置mybatis的设置-->
+        </bean>
+
+        <!-- 3 一次性配置所有持久层对象 id不用写，自动把接口名首字母小写做为ID
+            约定规则大于配置文件 springboot 0配置文件
+        -->
+        <bean  class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+           <property name="basePackage" value="org.hzdb.mapper"></property>
+        </bean>
+
+        <!-- 4 扫描业务层包-->
+       <context:component-scan base-package="org.hzdb.biz.service"/>
+
+
+ <!--   <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>-->
+   <!-- <tx:advice id="tx" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="a*" read-only="true" propagation="NEVER"/>
+            <tx:method name="b*" />
+            <tx:method name="get*" propagation="NEVER"></tx:method>
+            <tx:method name="set*" propagation="NEVER"></tx:method>
+            &lt;!&ndash;除了以上的所有方法 &ndash;&gt;
+            <tx:method name="*"/>
+        </tx:attributes>
+    </tx:advice>
+    <aop:config>
+        <aop:pointcut id="pc" expression="execution(public * cn.smbms.service..*(..))"/>
+        <aop:advisor advice-ref="tx" pointcut-ref="pc"/>
+    </aop:config>
+-->
+
+
+</beans>

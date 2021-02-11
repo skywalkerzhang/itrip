@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"
+>
+    <bean id="javaMailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="username" value="530677568@qq.com"></property>
+        <property name="password" value="shslgjttjphnbhhf"></property>
+        <property name="host" value="smtp.qq.com"></property>
+        <property name="protocol" value="smtp"></property>
+
+    </bean>
+
+    <bean id="simpleMailMessage" class="org.springframework.mail.SimpleMailMessage">
+        <property name="subject" value="欢迎注册爱旅行，此邮件无须回复"></property>
+        <property name="from" value="530677568@qq.com"></property>
+    </bean>
+
+</beans>

@@ -1,0 +1,35 @@
+{
+  "name" : "ItripTradeEnds",
+  "originTableName" : "itrip_trade_ends",
+  "comment" : "订单支付完成后，系统需对该订单进行后续处理，如减库存等。处理完成后，删除此表中的订单记录",
+  "fullColumn" : [ {
+    "name" : "id",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "ktShortType" : "Long",
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "orderno",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "ktShortType" : "String",
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "flag",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "ktShortType" : "Object",
+    "custom" : false,
+    "ext" : { }
+  } ],
+  "pkColumn" : null,
+  "otherColumn" : null,
+  "savePackageName" : "org.hzdb.beans.pojo",
+  "savePath" : "./pojo/src/main/java/org/hzdb/beans/pojo",
+  "saveModelName" : "pojo"
+}
